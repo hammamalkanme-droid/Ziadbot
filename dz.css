@@ -1,12 +1,11 @@
-body { background: #0f172a; color: white; font-family: 'Segoe UI', sans-serif; margin: 0; }
+body { background: #0f172a; color: white; font-family: sans-serif; margin: 0; }
 .app-container { padding: 40px 20px; text-align: center; }
 .grid { display: grid; gap: 15px; max-width: 400px; margin: auto; }
 .card { background: #1e293b; padding: 20px; border-radius: 15px; cursor: pointer; border: 1px solid #334155; }
-.card:hover { background: #38bdf8; color: #0f172a; }
-.modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #0f172a; flex-direction: column; z-index: 10; }
+.modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #0f172a; flex-direction: column; z-index: 100; }
 .chat-header { padding: 15px; color: #38bdf8; cursor: pointer; text-align: left; }
 #chat { flex: 1; overflow-y: auto; padding: 20px; text-align: right; }
 .input-area { padding: 15px; background: #1e293b; display: flex; gap: 10px; }
-input { flex: 1; padding: 12px; border-radius: 8px; border: none; }
-button { padding: 10px 20px; background: #38bdf8; border: none; border-radius: 8px; color: #0f172a; font-weight: bold; cursor: pointer; }
+input { flex: 1; padding: 10px; border-radius: 5px; }
+button { padding: 10px; background: #38bdf8; border: none; border-radius: 5px; cursor: pointer; }
 .calc-box { padding: 40px; text-align: center; }
