@@ -1,4 +1,10 @@
-function login() { const n = document.getElementById('studentName').value; if(n) { localStorage.setItem('currentUser', n); location.reload(); } }
+function login() { 
+    const n = document.getElementById('studentName').value; 
+    if(n) { 
+        localStorage.setItem('currentUser', n); 
+        location.reload(); 
+    } else { alert("يا بطل، اكتب اسمك أولاً!"); } 
+}
 function logout() { localStorage.removeItem('currentUser'); location.reload(); }
 function openModal(id) { document.getElementById(id).style.display = 'flex'; }
 function closeModal(id) { document.getElementById(id).style.display = 'none'; }
@@ -36,26 +42,4 @@ async function send() {
     const d = await res.json();
     ch.innerHTML += `<div style="background:#38bdf8; color:#0f172a; padding:10px; border-radius:10px; margin:5px; text-align:right;">زيد: ${d.choices[0].message.content}</div>`;
 }
-window.onload = () => { if(localStorage.getItem('currentUser')) document.getElementById('loginScreen').style.display = 'none'; }
-    const name = localStorage.getItem('currentUser');
-    if (!text) return;
-    chat.innerHTML += `<div style="margin:5px; text-align:right;">${name}: ${text}</div>`;
-    input.value = "";
-    
-    const API_KEY = "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"; // <--- ضع مفتاحك هنا
-    const res = await fetch("https://api.groq.com/openai/v1/chat/completions", {
-        method: "POST",
-        headers: { "Content-Type": "application/json", "Authorization": "Bearer " + API_KEY },
-        body: JSON.stringify({ 
-            model: "llama-3.1-8b-instant", 
-            messages: [
-                { role: "system", content: "أنت 'زيد'، مساعد ذكي لطلاب الإعدادية في ليبيا (فريق النخبة). رد بلهجة المستخدم (ليبي بالليبي، فصحى بالفصحى). ركز فقط على المنهج الليبي." }, 
-                { role: "user", content: text }
-            ] 
-        })
-    });
-    const data = await res.json();
-    chat.innerHTML += `<div style="background:#38bdf8; color:#0f172a; padding:10px; border-radius:10px; margin:5px; text-align:right;">زيد: ${data.choices[0].message.content}</div>`;
-}
-
 window.onload = () => { if(localStorage.getItem('currentUser')) document.getElementById('loginScreen').style.display = 'none'; }
