@@ -2,29 +2,50 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="dz.css">
-    <title>بُوت زِيد - فريق النخبة</title>
+    <link rel="stylesheet" href="style.css">
+    <title>بُوت زِيد | Elite Team</title>
 </head>
 <body>
-    <div id="loginScreen" class="modal" style="display:flex;">
-        <div class="calc-box">
-            <h1>مرحباً بك في عالم النخبة 📃 </h1>
-            <input type="text" id="studentName" placeholder="اكتب اسمك هنا...">
-            <button onclick="login()">دخول إلى بُوت زِيد</button>
+    <!-- صفحة الدخول -->
+    <div id="authOverlay" class="overlay">
+        <div class="auth-card">
+            <h2>🚀 دخول النخبة</h2>
+            <input type="text" id="username" placeholder="اسم المستخدم">
+            <input type="password" id="password" placeholder="كلمة السر">
+            <button onclick="handleAuth('login')">دخول</button>
+            <button onclick="handleAuth('register')" style="background:#334155; margin-top:10px;">إنشاء حساب</button>
         </div>
     </div>
-    <div class="app-container">
-        <header><h1>بُوت زِيد الذكي</h1><p>برعاية: همّام الكانبي | فريق النخبة</p></header>
-        <div class="grid">
-            <div class="card" onclick="openModal('chatModal')">🤖 محادثة زيد</div>
-            <div class="card" onclick="openModal('calcModal')">📈 حاسبة الدرجات</div>
-            <div class="card" onclick="openHallOfFame()">🏆 لوحة الشرف</div>
-            <button onclick="logout()" style="background:transparent; border:1px solid #38bdf8; color:#38bdf8; margin-top:20px;">تسجيل خروج</button>
+
+    <!-- التطبيق الرئيسي -->
+    <div class="main-layout">
+        <header>
+            <div class="logo">بُوت زِيد</div>
+            <div id="userProfile" onclick="logout()">خروج</div>
+        </header>
+
+        <div class="chat-container" id="chatArea">
+            <div id="chatMessages"></div>
+        </div>
+
+        <div class="input-container">
+            <input type="text" id="userInput" placeholder="اسأل زيد عن درسك...">
+            <button onclick="send()">إرسال</button>
+        </div>
+
+        <div class="stats-bar">
+            <div onclick="openLeaderboard()">🏆 لوحة الصدارة</div>
+            <div id="userScore">نقاطك: 0</div>
         </div>
     </div>
-    <div id="chatModal" class="modal"><div class="chat-header" onclick="closeModal('chatModal')">✖ إغلاق</div><div id="chat"></div><div class="input-area"><input type="text" id="userInput" placeholder="اسأل زيد..."><button onclick="send()">إرسال</button></div></div>
-    <div id="calcModal" class="modal"><div class="chat-header" onclick="closeModal('calcModal')">✖ إغلاق</div><div class="calc-box"><h2>حاسبة النسب</h2><input type="number" id="marks" placeholder="درجتك"><input type="number" id="total" placeholder="المجموع الكلي"><button onclick="calc()">احسب وسجل</button><h2 id="result"></h2></div></div>
-    <div id="hallModal" class="modal"><div class="chat-header" onclick="closeModal('hallModal')">✖ إغلاق</div><div class="calc-box"><h2>🏆 المتصدرون</h2><div id="hallContent"></div></div></div>
-    <script src="data.js"></script>
+
+    <div id="leaderboardModal" class="overlay">
+        <div class="auth-card">
+            <h2>🏆 المتصدرون</h2>
+            <div id="leaderboardList"></div>
+            <button onclick="closeModal()">إغلاق</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
