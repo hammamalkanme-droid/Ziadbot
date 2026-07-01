@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="style.css">
-    <title>بُوت زِيد | Elite Team</title>
+    <title>بوت زِيد | Elite Team</title>
 </head>
 <body>
-    <!-- صفحة الدخول -->
-    <div id="authOverlay" class="overlay">
+    <div id="authOverlay" class="overlay" style="display:flex;">
         <div class="auth-card">
             <h2>🚀 دخول النخبة</h2>
             <input type="text" id="username" placeholder="اسم المستخدم">
@@ -16,30 +15,22 @@
             <button onclick="handleAuth('register')" style="background:#334155; margin-top:10px;">إنشاء حساب</button>
         </div>
     </div>
-
-    <!-- التطبيق الرئيسي -->
     <div class="main-layout">
         <header>
-            <div class="logo">بُوت زِيد</div>
-            <div id="userProfile" onclick="logout()">خروج</div>
+            <div class="logo">بوت زِيد</div>
+            <div onclick="logout()" style="cursor:pointer;">خروج</div>
         </header>
-
-        <div class="chat-container" id="chatArea">
-            <div id="chatMessages"></div>
-        </div>
-
+        <div class="chat-container" id="chatArea"><div id="chatMessages"></div></div>
         <div class="input-container">
-            <input type="text" id="userInput" placeholder="اسأل زيد عن درسك...">
+            <input type="text" id="userInput" placeholder="اسأل زيد...">
             <button onclick="send()">إرسال</button>
         </div>
-
         <div class="stats-bar">
             <div onclick="openLeaderboard()">🏆 لوحة الصدارة</div>
             <div id="userScore">نقاطك: 0</div>
         </div>
     </div>
-
-    <div id="leaderboardModal" class="overlay">
+    <div id="leaderboardModal" class="overlay" style="display:none;">
         <div class="auth-card">
             <h2>🏆 المتصدرون</h2>
             <div id="leaderboardList"></div>
