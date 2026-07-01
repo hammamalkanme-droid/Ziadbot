@@ -1,10 +1,14 @@
 function login() { 
     const n = document.getElementById('studentName').value; 
+function login() { 
+    const n = document.getElementById('studentName').value; 
     if(n) { 
         localStorage.setItem('currentUser', n); 
-        location.reload(); 
+        // التعديل هنا: إضافة توقيت عشوائي لضمان التحديث
+        window.location.href = window.location.pathname + '?v=' + new Date().getTime(); 
     } else { alert("يا بطل، اكتب اسمك أولاً!"); } 
 }
+
 function logout() { localStorage.removeItem('currentUser'); location.reload(); }
 function openModal(id) { document.getElementById(id).style.display = 'flex'; }
 function closeModal(id) { document.getElementById(id).style.display = 'none'; }
