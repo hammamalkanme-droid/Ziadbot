@@ -2,21 +2,17 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-<link rel="stylesheet" href="dz.css">
-<script src="data.js" defer></script>
-
+    <link rel="stylesheet" href="dz.css">
     <title>بُوت زِيد - فريق النخبة</title>
 </head>
 <body>
     <div id="loginScreen" class="modal" style="display:flex;">
         <div class="calc-box">
             <h1>مرحباً بك في عالم النخبة 🚀</h1>
-            <p>أدخل اسمك للبدء في رحلة التعلم</p>
             <input type="text" id="studentName" placeholder="اسمك الكريم...">
             <button onclick="login()">دخول إلى بُوت زِيد</button>
         </div>
     </div>
-
     <div class="app-container">
         <header><h1>بُوت زِيد الذكي</h1><p>برعاية: همّام الكانبي | فريق النخبة</p></header>
         <div class="grid">
@@ -26,11 +22,9 @@
             <button onclick="logout()" style="background:transparent; border:1px solid #38bdf8; color:#38bdf8; margin-top:20px;">تسجيل خروج</button>
         </div>
     </div>
-
     <div id="chatModal" class="modal"><div class="chat-header" onclick="closeModal('chatModal')">✖ إغلاق</div><div id="chat"></div><div class="input-area"><input type="text" id="userInput" placeholder="اسأل زيد..."><button onclick="send()">إرسال</button></div></div>
     <div id="calcModal" class="modal"><div class="chat-header" onclick="closeModal('calcModal')">✖ إغلاق</div><div class="calc-box"><h2>حاسبة النسب</h2><input type="number" id="marks" placeholder="درجتك"><input type="number" id="total" placeholder="المجموع الكلي"><button onclick="calc()">احسب وسجل</button><h2 id="result"></h2></div></div>
     <div id="hallModal" class="modal"><div class="chat-header" onclick="closeModal('hallModal')">✖ إغلاق</div><div class="calc-box"><h2>🏆 المتصدرون</h2><div id="hallContent"></div></div></div>
-
-    <script src="script.js"></script>
+    <script src="data.js"></script>
 </body>
 </html>
